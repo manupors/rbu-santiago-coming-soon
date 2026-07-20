@@ -39,17 +39,6 @@ function MaintenancePage() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-border pt-8">
-          <p className="text-sm text-muted-foreground">
-            Si necesitas contactarnos urgentemente, escríbenos a{" "}
-            <a
-              href="mailto:contacto@rbusantiago.cl"
-              className="font-medium text-primary underline underline-offset-4 hover:text-accent"
-            >
-              contacto@rbusantiago.cl
-            </a>
-          </p>
-        </div>
       </div>
 
       <footer className="mt-12 text-sm text-muted-foreground">
