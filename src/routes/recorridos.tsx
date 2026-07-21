@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ExternalLink, MapPin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { ConnectivityLine } from "@/components/brand/ConnectivityLine";
+import { RedArrow } from "@/components/brand/RedArrow";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 export const Route = createFileRoute("/recorridos")({
@@ -28,7 +30,14 @@ const unidad4 = [
 ];
 const pendientes = new Set(["444", "B43"]);
 
-function Chip({ code, disabled }: { code: string; disabled?: boolean }) {
+interface ChipProps {
+  code: string;
+  disabled?: boolean;
+  active?: boolean;
+  onClick?: () => void;
+}
+
+function Chip({ code, disabled, active, onClick }: ChipProps) {
   if (disabled) {
     return (
       <TooltipProvider delayDuration={100}>
@@ -44,32 +53,80 @@ function Chip({ code, disabled }: { code: string; disabled?: boolean }) {
     );
   }
   return (
-    <a
-      href={`https://www.red.cl/mapas-y-horarios/bus/recorrido/?codser=${encodeURIComponent(code)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+    <button
+      type="button"
+      onClick={onClick}
+      className={
+        "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors " +
+        (active
+          ? "bg-accent text-accent-foreground shadow-md ring-2 ring-accent/40 ring-offset-2"
+          : "bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground")
+      }
+      aria-pressed={active}
     >
       {code}
-    </a>
+    </button>
   );
 }
 
+function buildMapSrc(code: string | null) {
+  if (!code) {
+    return "https://www.google.com/maps?q=Las+Condes,+Santiago,+Chile&z=11&output=embed";
+  }
+  const q = `Recorrido ${code} Red Movilidad Santiago Chile`;
+  return `https://www.google.com/maps?q=${encodeURIComponent(q)}&z=12&output=embed`;
+}
+
 function RecorridosPage() {
+  const [selected, setSelected] = useState<string | null>(null);
+
   return (
     <>
       <PageHero
         eyebrow="Movilidad"
         title="Nuestros recorridos"
-        description="Esta sección es tu puerta de entrada para descubrir todas las opciones que ponemos a tu disposición."
+        description="Selecciona un recorrido para verlo en el mapa. Esta sección es tu puerta de entrada para descubrir todas las opciones que ponemos a tu disposición."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
+        {/* MAP */}
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-[color:var(--muted)] px-5 py-4">
+            <div className="flex items-center gap-3">
+              <MapPin className="h-5 w-5 text-accent" />
+              <div>
+                <p className="eyebrow text-[color:var(--gray-dark)]">Mapa del recorrido</p>
+                <p className="font-display text-xl uppercase text-primary">
+                  {selected ? `Recorrido ${selected}` : "Zona de operación RBU"}
+                </p>
+              </div>
+            </div>
+            {selected && (
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={`https://www.red.cl/mapas-y-horarios/bus/recorrido/?codser=${encodeURIComponent(selected)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground transition-colors hover:bg-accent"
+                >
+                  Ver en red.cl
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setSelected(null)}
+                  className="inline-flex items-center rounded-full border border-border px-4 py-2 text-xs font-bold uppercase tracking-widest text-[color:var(--gray-dark)] transition-colors hover:border-accent hover:text-accent"
+                >
+                  Limpiar
+                </button>
+              </div>
+            )}
+          </div>
           <iframe
-            title="Zona de operación RBU Santiago"
-            src="https://www.google.com/maps?q=Las+Condes,+Santiago,+Chile&z=11&output=embed"
-            className="h-[420px] w-full"
+            key={selected ?? "default"}
+            title={selected ? `Recorrido ${selected} en el mapa` : "Zona de operación RBU Santiago"}
+            src={buildMapSrc(selected)}
+            className="h-[480px] w-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
@@ -77,24 +134,40 @@ function RecorridosPage() {
 
         {/* UNIDAD 6 */}
         <div className="mt-16">
-          <h2 className="font-display text-3xl text-accent">Unidad 6 — Escuela Militar / Las Condes</h2>
-          <ConnectivityLine className="mt-3 max-w-[220px]" />
+          <h2 className="font-display text-3xl uppercase text-accent">
+            Unidad 6 — Escuela Militar / Las Condes
+          </h2>
+          <RedArrow className="mt-3 h-3 w-24" />
           <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad6, "444"].map((c) => (
-              <Chip key={c} code={c} disabled={pendientes.has(c)} />
+              <Chip
+                key={c}
+                code={c}
+                disabled={pendientes.has(c)}
+                active={selected === c}
+                onClick={() => setSelected(c)}
+              />
             ))}
           </div>
         </div>
 
         {/* UNIDAD 4 */}
         <div className="mt-16">
-          <h2 className="font-display text-3xl text-accent">Unidad 4 — Vital Apoquindo / Ciudad Empresarial</h2>
-          <ConnectivityLine className="mt-3 max-w-[220px]" />
+          <h2 className="font-display text-3xl uppercase text-accent">
+            Unidad 4 — Vital Apoquindo / Ciudad Empresarial
+          </h2>
+          <RedArrow className="mt-3 h-3 w-24" />
           <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad4, "B43"].map((c) => (
-              <Chip key={c} code={c} disabled={pendientes.has(c)} />
+              <Chip
+                key={c}
+                code={c}
+                disabled={pendientes.has(c)}
+                active={selected === c}
+                onClick={() => setSelected(c)}
+              />
             ))}
           </div>
         </div>
