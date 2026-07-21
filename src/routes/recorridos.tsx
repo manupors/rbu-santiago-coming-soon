@@ -3,7 +3,9 @@ import { useState } from "react";
 import { ExternalLink, MapPin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { RedArrow } from "@/components/brand/RedArrow";
+import { RouteMap } from "@/components/site/RouteMap";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 
 export const Route = createFileRoute("/recorridos")({
   head: () => ({
@@ -69,13 +71,6 @@ function Chip({ code, disabled, active, onClick }: ChipProps) {
   );
 }
 
-function buildMapSrc(code: string | null) {
-  if (!code) {
-    return "https://www.google.com/maps?q=Las+Condes,+Santiago,+Chile&z=11&output=embed";
-  }
-  const q = `Recorrido ${code} Red Movilidad Santiago Chile`;
-  return `https://www.google.com/maps?q=${encodeURIComponent(q)}&z=12&output=embed`;
-}
 
 function RecorridosPage() {
   const [selected, setSelected] = useState<string | null>(null);
@@ -122,14 +117,8 @@ function RecorridosPage() {
               </div>
             )}
           </div>
-          <iframe
-            key={selected ?? "default"}
-            title={selected ? `Recorrido ${selected} en el mapa` : "Zona de operación RBU Santiago"}
-            src={buildMapSrc(selected)}
-            className="h-[480px] w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <RouteMap code={selected} />
+
         </div>
 
         {/* UNIDAD 6 */}
