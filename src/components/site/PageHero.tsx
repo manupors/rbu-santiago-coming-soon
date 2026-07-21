@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { BusWheel } from "@/components/brand/BusWheel";
-import { ConnectivityLine } from "@/components/brand/ConnectivityLine";
+import { RedArrow } from "@/components/brand/RedArrow";
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -11,25 +10,32 @@ interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, description, children }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-primary text-white">
-      <BusWheel className="absolute -top-16 -right-24 opacity-30" size={380} />
-      <BusWheel className="absolute -bottom-24 -left-24 opacity-20" size={260} color="red" />
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section className="relative overflow-hidden bg-[color:var(--primary-dark)] text-white">
+      {/* Textura sutil con líneas diagonales */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(135deg, #ffffff 0 1px, transparent 1px 22px)",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-36 lg:px-8">
         {eyebrow && (
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/80">
-            {eyebrow}
+          <p className="eyebrow text-white/80">
+            <span className="text-accent">—</span>&nbsp;&nbsp;{eyebrow}
           </p>
         )}
-        <h1 className="font-display text-4xl leading-tight sm:text-5xl md:text-6xl">
+        <RedArrow className="mt-6 h-3 w-24" />
+        <h1 className="headline-xl mt-6 max-w-5xl text-4xl sm:text-6xl md:text-7xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-5 max-w-3xl text-base text-white/90 sm:text-lg">
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg">
             {description}
           </p>
         )}
-        {children && <div className="mt-8">{children}</div>}
-        <ConnectivityLine color="white" className="mt-10 max-w-md opacity-70" />
+        {children && <div className="mt-10">{children}</div>}
       </div>
     </section>
   );
