@@ -3,7 +3,9 @@ import { useState } from "react";
 import { ExternalLink, MapPin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { RedArrow } from "@/components/brand/RedArrow";
+import { RouteMap } from "@/components/site/RouteMap";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 
 export const Route = createFileRoute("/recorridos")({
   head: () => ({
