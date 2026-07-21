@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { RedArrow } from "@/components/brand/RedArrow";
 
 interface PageHeroProps {
   eyebrow?: string;

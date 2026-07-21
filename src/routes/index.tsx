@@ -8,7 +8,6 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
-import { RedArrow } from "@/components/brand/RedArrow";
 import heroBus from "@/assets/hero-bus.jpg";
 import sectionBus from "@/assets/section-bus.jpg";
 
