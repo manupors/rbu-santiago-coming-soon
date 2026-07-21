@@ -20,11 +20,11 @@ export function Footer() {
           <h3 className="font-display text-xl">Enlaces rápidos</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/" className="hover:text-accent">Inicio</Link></li>
-            <li><Link to="/recorridos" className="hover:text-accent">Recorridos</Link></li>
-            <li><Link to="/ofertas-laborales" className="hover:text-accent">Ofertas Laborales</Link></li>
-            <li><Link to="/reclamos" className="hover:text-accent">Reclamos, sugerencias y felicitaciones</Link></li>
             <li><Link to="/quienes-somos" className="hover:text-accent">¿Quiénes somos?</Link></li>
-            <li><Link to="/datos-personales" className="hover:text-accent">Política de datos personales</Link></li>
+            <li><Link to="/recorridos" className="hover:text-accent">Recorridos</Link></li>
+            <li><Link to="/mesa-de-ayuda" className="hover:text-accent">Mesa de Ayuda</Link></li>
+            <li><Link to="/reclamos" className="hover:text-accent">Reclamos, sugerencias y felicitaciones</Link></li>
+            <li><Link to="/ofertas-laborales" className="hover:text-accent">Ofertas Laborales</Link></li>
           </ul>
         </div>
 
@@ -66,8 +66,7 @@ export function Footer() {
       <ConnectivityLine color="white" className="mx-auto max-w-7xl px-4 opacity-40" />
 
       <div className="mx-auto max-w-7xl px-4 py-6 text-center text-xs text-white/70 sm:px-6 lg:px-8">
-        © {new Date().getFullYear()} RBU Santiago. Todos los derechos reservados. ·{" "}
-        <Link to="/datos-personales" className="underline hover:text-accent">Política de datos personales</Link>
+        © {new Date().getFullYear()} RBU Santiago. Todos los derechos reservados.
       </div>
     </footer>
   );
