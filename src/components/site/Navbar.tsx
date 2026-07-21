@@ -23,7 +23,7 @@ export function Navbar() {
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur border-b border-border">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2" aria-label="RBU Santiago — Inicio">
-          <BrandLogo className="h-11 w-24" showSlogan={false} />
+          <BrandLogo className="h-12 w-12" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
