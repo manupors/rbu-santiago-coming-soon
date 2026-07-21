@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="mt-24 bg-[color:var(--primary-dark)] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div>
-          <BrandLogo variant="white" className="h-16 w-40" />
+          <BrandLogo variant="white" className="h-20 w-20" />
           <p className="mt-4 max-w-xs text-sm text-white/80">
             Empresa de transporte público del sector nororiente de Santiago.
             Nos movemos contigo hacia la calidad, conectividad y disposición.
