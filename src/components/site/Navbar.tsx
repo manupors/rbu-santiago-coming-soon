@@ -7,12 +7,11 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { to: "/", label: "Inicio" },
+  { to: "/quienes-somos", label: "¿Quiénes somos?" },
   { to: "/recorridos", label: "Recorridos" },
-  { to: "/ofertas-laborales", label: "Ofertas Laborales" },
   { to: "/mesa-de-ayuda", label: "Mesa de Ayuda" },
   { to: "/reclamos", label: "Reclamos" },
-  { to: "/quienes-somos", label: "¿Quiénes somos?" },
-  { to: "/datos-personales", label: "Datos Personales" },
+  { to: "/ofertas-laborales", label: "Ofertas Laborales" },
 ] as const;
 
 export function Navbar() {
