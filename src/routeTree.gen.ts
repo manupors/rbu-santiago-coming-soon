@@ -14,7 +14,6 @@ import { Route as ReclamosRouteImport } from './routes/reclamos'
 import { Route as QuienesSomosRouteImport } from './routes/quienes-somos'
 import { Route as OfertasLaboralesRouteImport } from './routes/ofertas-laborales'
 import { Route as MesaDeAyudaRouteImport } from './routes/mesa-de-ayuda'
-import { Route as DatosPersonalesRouteImport } from './routes/datos-personales'
 import { Route as IndexRouteImport } from './routes/index'
 
 const RecorridosRoute = RecorridosRouteImport.update({
@@ -42,11 +41,6 @@ const MesaDeAyudaRoute = MesaDeAyudaRouteImport.update({
   path: '/mesa-de-ayuda',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DatosPersonalesRoute = DatosPersonalesRouteImport.update({
-  id: '/datos-personales',
-  path: '/datos-personales',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,7 +49,6 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/datos-personales': typeof DatosPersonalesRoute
   '/mesa-de-ayuda': typeof MesaDeAyudaRoute
   '/ofertas-laborales': typeof OfertasLaboralesRoute
   '/quienes-somos': typeof QuienesSomosRoute
@@ -64,7 +57,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/datos-personales': typeof DatosPersonalesRoute
   '/mesa-de-ayuda': typeof MesaDeAyudaRoute
   '/ofertas-laborales': typeof OfertasLaboralesRoute
   '/quienes-somos': typeof QuienesSomosRoute
@@ -74,7 +66,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/datos-personales': typeof DatosPersonalesRoute
   '/mesa-de-ayuda': typeof MesaDeAyudaRoute
   '/ofertas-laborales': typeof OfertasLaboralesRoute
   '/quienes-somos': typeof QuienesSomosRoute
@@ -85,7 +76,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/datos-personales'
     | '/mesa-de-ayuda'
     | '/ofertas-laborales'
     | '/quienes-somos'
@@ -94,7 +84,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/datos-personales'
     | '/mesa-de-ayuda'
     | '/ofertas-laborales'
     | '/quienes-somos'
@@ -103,7 +92,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/datos-personales'
     | '/mesa-de-ayuda'
     | '/ofertas-laborales'
     | '/quienes-somos'
@@ -113,7 +101,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DatosPersonalesRoute: typeof DatosPersonalesRoute
   MesaDeAyudaRoute: typeof MesaDeAyudaRoute
   OfertasLaboralesRoute: typeof OfertasLaboralesRoute
   QuienesSomosRoute: typeof QuienesSomosRoute
@@ -158,13 +145,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MesaDeAyudaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/datos-personales': {
-      id: '/datos-personales'
-      path: '/datos-personales'
-      fullPath: '/datos-personales'
-      preLoaderRoute: typeof DatosPersonalesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -177,7 +157,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DatosPersonalesRoute: DatosPersonalesRoute,
   MesaDeAyudaRoute: MesaDeAyudaRoute,
   OfertasLaboralesRoute: OfertasLaboralesRoute,
   QuienesSomosRoute: QuienesSomosRoute,
