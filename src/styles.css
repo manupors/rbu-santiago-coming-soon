@@ -145,3 +145,22 @@
   font-family: var(--font-display);
   letter-spacing: 0.01em;
 }
+
+/* Utility: eyebrow tipográfico corporativo (uppercase pequeño con arrastre) */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Título editorial masivo tipo Transdev */
+.headline-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+}
+
