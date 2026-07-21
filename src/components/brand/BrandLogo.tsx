@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/rbu-logo.png.asset.json";
+import logoUrl from "@/assets/rbu-logo.png";
 
 interface BrandLogoProps {
   variant?: "color" | "white";
