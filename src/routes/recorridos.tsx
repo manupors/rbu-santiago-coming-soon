@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ExternalLink, MapPin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { RedArrow } from "@/components/brand/RedArrow";
 import { RouteMap } from "@/components/site/RouteMap";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -126,7 +125,6 @@ function RecorridosPage() {
           <h2 className="font-display text-3xl uppercase text-accent">
             Unidad 6 — Escuela Militar / Las Condes
           </h2>
-          <RedArrow className="mt-3 h-3 w-24" />
           <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad6, "444"].map((c) => (
@@ -146,7 +144,6 @@ function RecorridosPage() {
           <h2 className="font-display text-3xl uppercase text-accent">
             Unidad 4 — Vital Apoquindo / Ciudad Empresarial
           </h2>
-          <RedArrow className="mt-3 h-3 w-24" />
           <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad4, "B43"].map((c) => (

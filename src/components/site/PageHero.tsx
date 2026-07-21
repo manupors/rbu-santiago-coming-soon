@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { RedArrow } from "@/components/brand/RedArrow";
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -26,7 +25,6 @@ export function PageHero({ eyebrow, title, description, children }: PageHeroProp
             <span className="text-accent">—</span>&nbsp;&nbsp;{eyebrow}
           </p>
         )}
-        <RedArrow className="mt-6 h-3 w-24" />
         <h1 className="headline-xl mt-6 max-w-5xl text-4xl sm:text-6xl md:text-7xl">
           {title}
         </h1>
