@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import type { Map as LeafletMap, Layer, LatLngBoundsExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { getRouteShape, type RouteShape } from "@/lib/recorridos.functions";
+import { getRouteShape, type RouteShape } from "@/lib/recorridos";
 
 interface Props {
   code: string | null;
@@ -25,7 +24,6 @@ export function RouteMap({ code }: Props) {
   const mapRef = useRef<LeafletMap | null>(null);
   const LRef = useRef<typeof import("leaflet") | null>(null);
   const overlaysRef = useRef<Layer[]>([]);
-  const fetchShape = useServerFn(getRouteShape);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -90,7 +88,7 @@ export function RouteMap({ code }: Props) {
         const L = LRef.current ?? (await import("leaflet")).default;
         LRef.current = L;
 
-        const shape: RouteShape = await fetchShape({ data: { code } });
+        const shape: RouteShape = await getRouteShape(code);
         if (cancelled || !mapRef.current) return;
 
         clearOverlays();
@@ -144,7 +142,7 @@ export function RouteMap({ code }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [code, fetchShape]);
+  }, [code]);
 
   return (
     <div className="relative">
