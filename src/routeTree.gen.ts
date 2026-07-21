@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RecorridosRouteImport } from './routes/recorridos'
+import { Route as ReclamosRouteImport } from './routes/reclamos'
+import { Route as QuienesSomosRouteImport } from './routes/quienes-somos'
+import { Route as OfertasLaboralesRouteImport } from './routes/ofertas-laborales'
+import { Route as MesaDeAyudaRouteImport } from './routes/mesa-de-ayuda'
+import { Route as DatosPersonalesRouteImport } from './routes/datos-personales'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RecorridosRoute = RecorridosRouteImport.update({
+  id: '/recorridos',
+  path: '/recorridos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReclamosRoute = ReclamosRouteImport.update({
+  id: '/reclamos',
+  path: '/reclamos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuienesSomosRoute = QuienesSomosRouteImport.update({
+  id: '/quienes-somos',
+  path: '/quienes-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfertasLaboralesRoute = OfertasLaboralesRouteImport.update({
+  id: '/ofertas-laborales',
+  path: '/ofertas-laborales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MesaDeAyudaRoute = MesaDeAyudaRouteImport.update({
+  id: '/mesa-de-ayuda',
+  path: '/mesa-de-ayuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatosPersonalesRoute = DatosPersonalesRouteImport.update({
+  id: '/datos-personales',
+  path: '/datos-personales',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/datos-personales': typeof DatosPersonalesRoute
+  '/mesa-de-ayuda': typeof MesaDeAyudaRoute
+  '/ofertas-laborales': typeof OfertasLaboralesRoute
+  '/quienes-somos': typeof QuienesSomosRoute
+  '/reclamos': typeof ReclamosRoute
+  '/recorridos': typeof RecorridosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/datos-personales': typeof DatosPersonalesRoute
+  '/mesa-de-ayuda': typeof MesaDeAyudaRoute
+  '/ofertas-laborales': typeof OfertasLaboralesRoute
+  '/quienes-somos': typeof QuienesSomosRoute
+  '/reclamos': typeof ReclamosRoute
+  '/recorridos': typeof RecorridosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/datos-personales': typeof DatosPersonalesRoute
+  '/mesa-de-ayuda': typeof MesaDeAyudaRoute
+  '/ofertas-laborales': typeof OfertasLaboralesRoute
+  '/quienes-somos': typeof QuienesSomosRoute
+  '/reclamos': typeof ReclamosRoute
+  '/recorridos': typeof RecorridosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/datos-personales'
+    | '/mesa-de-ayuda'
+    | '/ofertas-laborales'
+    | '/quienes-somos'
+    | '/reclamos'
+    | '/recorridos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/datos-personales'
+    | '/mesa-de-ayuda'
+    | '/ofertas-laborales'
+    | '/quienes-somos'
+    | '/reclamos'
+    | '/recorridos'
+  id:
+    | '__root__'
+    | '/'
+    | '/datos-personales'
+    | '/mesa-de-ayuda'
+    | '/ofertas-laborales'
+    | '/quienes-somos'
+    | '/reclamos'
+    | '/recorridos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DatosPersonalesRoute: typeof DatosPersonalesRoute
+  MesaDeAyudaRoute: typeof MesaDeAyudaRoute
+  OfertasLaboralesRoute: typeof OfertasLaboralesRoute
+  QuienesSomosRoute: typeof QuienesSomosRoute
+  ReclamosRoute: typeof ReclamosRoute
+  RecorridosRoute: typeof RecorridosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/recorridos': {
+      id: '/recorridos'
+      path: '/recorridos'
+      fullPath: '/recorridos'
+      preLoaderRoute: typeof RecorridosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reclamos': {
+      id: '/reclamos'
+      path: '/reclamos'
+      fullPath: '/reclamos'
+      preLoaderRoute: typeof ReclamosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quienes-somos': {
+      id: '/quienes-somos'
+      path: '/quienes-somos'
+      fullPath: '/quienes-somos'
+      preLoaderRoute: typeof QuienesSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ofertas-laborales': {
+      id: '/ofertas-laborales'
+      path: '/ofertas-laborales'
+      fullPath: '/ofertas-laborales'
+      preLoaderRoute: typeof OfertasLaboralesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mesa-de-ayuda': {
+      id: '/mesa-de-ayuda'
+      path: '/mesa-de-ayuda'
+      fullPath: '/mesa-de-ayuda'
+      preLoaderRoute: typeof MesaDeAyudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datos-personales': {
+      id: '/datos-personales'
+      path: '/datos-personales'
+      fullPath: '/datos-personales'
+      preLoaderRoute: typeof DatosPersonalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +177,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DatosPersonalesRoute: DatosPersonalesRoute,
+  MesaDeAyudaRoute: MesaDeAyudaRoute,
+  OfertasLaboralesRoute: OfertasLaboralesRoute,
+  QuienesSomosRoute: QuienesSomosRoute,
+  ReclamosRoute: ReclamosRoute,
+  RecorridosRoute: RecorridosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
