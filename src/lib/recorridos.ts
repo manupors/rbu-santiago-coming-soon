@@ -1,5 +1,3 @@
-// Client-side fetch de shapes desde red.cl. Se ejecuta en el navegador del
-// usuario, así que la IP es chilena y evita el bloqueo geográfico.
 import shapes from "@/data/route-shapes.json";
 
 export interface RouteDirection {
@@ -32,20 +30,5 @@ export async function getRouteShape(code: string): Promise<RouteShape> {
     return local;
   }
 
-  const url = `https://www.red.cl/restservice_v2/rest/conocerecorrido?codsint=${encodeURIComponent(code)}`;
-  const res = await fetch(url, {
-    headers: { Accept: "application/json, text/plain, */*" },
-  });
-  if (!res.ok) throw new Error(`No se pudo obtener el recorrido (HTTP ${res.status}).`);
-  const j = await res.json();
-  const shape: RouteShape = {
-    color: j?.negocio?.color ?? "#F42534",
-    ida: pick(j?.ida),
-    regreso: pick(j?.regreso),
-  };
-  if (!shape.ida && !shape.regreso) {
-    throw new Error(`Recorrido ${key} no encontrado.`);
-  }
-  cache.set(key, shape);
-  return shape;
+  throw new Error(`Mapa del recorrido ${key} no disponible por ahora.`);
 }

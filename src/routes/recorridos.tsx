@@ -29,7 +29,7 @@ const unidad4 = [
   "C02c","C03","C03c","C05","C06","C06c","C07","C09","C10e","C11",
   "C13","C14","C15","C16","C17","C19","C20","C22","C27","C28","C37","C37y",
 ];
-const pendientes = new Set(["444", "B43"]);
+const pendientes = new Set(["444", "B43", "430y", "C06c", "C37y"]);
 
 interface ChipProps {
   code: string;
