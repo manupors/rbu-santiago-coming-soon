@@ -117,14 +117,8 @@ function RecorridosPage() {
               </div>
             )}
           </div>
-          <iframe
-            key={selected ?? "default"}
-            title={selected ? `Recorrido ${selected} en el mapa` : "Zona de operación RBU Santiago"}
-            src={buildMapSrc(selected)}
-            className="h-[480px] w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <RouteMap code={selected} />
+
         </div>
 
         {/* UNIDAD 6 */}
