@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/rbu-logo.png.asset.json";
+import logoUrl from "@/assets/rbu-logo.png";
 
 interface BrandLogoProps {
   variant?: "color" | "white";
@@ -19,7 +19,7 @@ export function BrandLogo({ variant = "color", className }: BrandLogoProps) {
         aria-label="RBU Santiago"
       >
         <img
-          src={logoAsset.url}
+          src={logoUrl}
           alt="RBU Santiago"
           className="h-full w-auto object-contain"
         />
@@ -29,7 +29,7 @@ export function BrandLogo({ variant = "color", className }: BrandLogoProps) {
 
   return (
     <img
-      src={logoAsset.url}
+      src={logoUrl}
       alt="RBU Santiago"
       className={`object-contain ${className ?? ""}`}
     />
