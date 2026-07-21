@@ -142,9 +142,9 @@ function RecorridosPage() {
         {/* UNIDAD 4 */}
         <div className="mt-16">
           <h2 className="font-display text-3xl uppercase text-accent">
-            Unidad 4 — Vital Apoquindo / Ciudad Empresarial
+            Unidad 4
           </h2>
-          <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
+
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad4, "B43"].map((c) => (
               <Chip
