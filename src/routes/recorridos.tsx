@@ -71,13 +71,6 @@ function Chip({ code, disabled, active, onClick }: ChipProps) {
   );
 }
 
-function buildMapSrc(code: string | null) {
-  if (!code) {
-    return "https://www.google.com/maps?q=Las+Condes,+Santiago,+Chile&z=11&output=embed";
-  }
-  const q = `Recorrido ${code} Red Movilidad Santiago Chile`;
-  return `https://www.google.com/maps?q=${encodeURIComponent(q)}&z=12&output=embed`;
-}
 
 function RecorridosPage() {
   const [selected, setSelected] = useState<string | null>(null);
