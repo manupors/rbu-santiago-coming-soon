@@ -26,7 +26,7 @@
   --radius-3xl: calc(var(--radius) + 12px);
 
   --font-sans: "Dosis", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bebas Neue", "Dosis", sans-serif;
+  --font-display: "Dosis", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -140,10 +140,11 @@
   }
 }
 
-/* Bebas Neue con letter-spacing corporativo */
+/* Dosis Bold como display corporativo (brandbook RBU) */
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: 0.01em;
+  font-weight: 800;
+  letter-spacing: 0.005em;
 }
 
 /* Utility: eyebrow tipográfico corporativo (uppercase pequeño con arrastre) */
@@ -155,12 +156,13 @@
   text-transform: uppercase;
 }
 
-/* Título editorial masivo tipo Transdev */
+/* Título editorial masivo — Dosis Extra Bold en uppercase */
 .headline-xl {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 800;
   text-transform: uppercase;
-  line-height: 0.92;
+  line-height: 0.98;
   letter-spacing: 0.005em;
 }
+
 
