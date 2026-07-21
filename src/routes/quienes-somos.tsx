@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Eye, Target } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/quienes-somos")({
@@ -74,7 +75,12 @@ function QuienesSomosPage() {
       <section className="bg-[color:var(--muted)]/50 py-20">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
           <article className="rounded-2xl border-t-4 border-accent bg-card p-8 shadow-sm">
-            <h3 className="font-display text-3xl text-primary">Misión</h3>
+            <h3 className="flex items-center gap-3 font-display text-3xl text-primary">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Target size={22} strokeWidth={2.5} />
+              </span>
+              Misión
+            </h3>
             <p className="mt-4 text-sm leading-relaxed text-[color:var(--gray-dark)]">
               RBU Santiago S.A. es una empresa de transporte público de pasajeros
               que opera en la Red Metropolitana de Movilidad y que cuenta con una
@@ -85,7 +91,12 @@ function QuienesSomosPage() {
             </p>
           </article>
           <article className="rounded-2xl border-t-4 border-accent bg-card p-8 shadow-sm">
-            <h3 className="font-display text-3xl text-primary">Visión</h3>
+            <h3 className="flex items-center gap-3 font-display text-3xl text-primary">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Eye size={22} strokeWidth={2.5} />
+              </span>
+              Visión
+            </h3>
             <p className="mt-4 text-sm leading-relaxed text-[color:var(--gray-dark)]">
               Ser referentes del sistema Red Movilidad por la calidad, cumplimiento
               operacional y seguridad. Aumentar nuestra participación en el

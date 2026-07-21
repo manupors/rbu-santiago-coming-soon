@@ -1,3 +1,5 @@
+/// <reference types="google.maps" />
+
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { getRouteShape, type RouteShape } from "@/lib/recorridos.functions";
