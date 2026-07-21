@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Eye, Target } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/quienes-somos")({
