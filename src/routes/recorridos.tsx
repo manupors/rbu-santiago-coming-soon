@@ -123,9 +123,9 @@ function RecorridosPage() {
         {/* UNIDAD 6 */}
         <div className="mt-16">
           <h2 className="font-display text-3xl uppercase text-accent">
-            Unidad 6 — Escuela Militar / Las Condes
+            Unidad 6
           </h2>
-          <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
+
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad6, "444"].map((c) => (
               <Chip
