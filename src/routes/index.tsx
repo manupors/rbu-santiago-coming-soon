@@ -92,11 +92,7 @@ function HomePage() {
             <span className="text-accent">—</span>&nbsp;&nbsp;Grupo Transdev · Santiago de Chile
           </p>
           <h1 className="headline-xl max-w-5xl text-5xl sm:text-7xl md:text-[5.5rem] lg:text-[6.5rem]">
-            Reinventamos hoy
-            <span className="inline-flex items-center gap-4 pl-2 align-middle">
-              <RedArrow className="hidden h-6 w-16 sm:inline-block md:h-8 md:w-24" />
-            </span>
-            la movilidad de Santiago para mañana
+            Reinventamos hoy la movilidad de Santiago para mañana
           </h1>
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
@@ -140,7 +136,6 @@ function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
           <div className="lg:col-span-4">
             <p className="eyebrow text-accent">— Quiénes somos</p>
-            <RedArrow className="mt-6 h-3 w-24" />
           </div>
           <div className="lg:col-span-8">
             <h2 className="headline-xl text-4xl text-primary sm:text-5xl md:text-6xl">
@@ -170,7 +165,6 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="eyebrow text-white/70">— En cifras</p>
-            <RedArrow className="mt-6 h-3 w-24" />
             <h2 className="headline-xl mt-6 text-4xl sm:text-5xl md:text-6xl">
               Un equipo humano y tecnología
               <br />
@@ -208,7 +202,6 @@ function HomePage() {
           </div>
           <div className="flex flex-col justify-center bg-background px-6 py-20 sm:px-12 lg:px-16">
             <p className="eyebrow text-accent">— Nuestros valores</p>
-            <RedArrow className="mt-6 h-3 w-24" />
             <h2 className="headline-xl mt-6 text-4xl text-primary sm:text-5xl md:text-6xl">
               Nos movemos juntos hacia desafiantes direcciones.
             </h2>
@@ -237,7 +230,6 @@ function HomePage() {
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-[color:var(--gray-dark)]">
                   {a.desc}
                 </p>
-                <RedArrow className="mt-8 h-2.5 w-14 opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
             ))}
           </div>
@@ -249,7 +241,6 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="eyebrow text-white/80">— Nuestros destinos</p>
-            <RedArrow color="white" className="mt-6 h-3 w-24" />
             <h2 className="headline-xl mt-6 text-4xl sm:text-5xl md:text-6xl">
               Calidad, conectividad y disposición.
             </h2>
@@ -284,7 +275,6 @@ function HomePage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <p className="eyebrow text-accent">— Súmate</p>
-              <RedArrow className="mt-6 h-3 w-24" />
               <h2 className="headline-xl mt-6 text-4xl text-primary sm:text-5xl md:text-6xl">
                 Mueve Santiago con nosotros.
               </h2>

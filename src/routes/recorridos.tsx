@@ -125,7 +125,6 @@ function RecorridosPage() {
           <h2 className="font-display text-3xl uppercase text-accent">
             Unidad 6 — Escuela Militar / Las Condes
           </h2>
-          <RedArrow className="mt-3 h-3 w-24" />
           <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad6, "444"].map((c) => (
@@ -145,7 +144,6 @@ function RecorridosPage() {
           <h2 className="font-display text-3xl uppercase text-accent">
             Unidad 4 — Vital Apoquindo / Ciudad Empresarial
           </h2>
-          <RedArrow className="mt-3 h-3 w-24" />
           <p className="mt-3 text-sm text-[color:var(--gray-dark)]">Operan desde enero 2023.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {[...unidad4, "B43"].map((c) => (
