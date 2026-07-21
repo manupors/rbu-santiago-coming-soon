@@ -46,7 +46,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="xl:hidden">
+        <div className="xl:hidden justify-self-end">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Abrir menú">
