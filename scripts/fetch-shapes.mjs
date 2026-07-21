@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Descarga los shapes de todos los recorridos desde red.cl y los guarda
-// en src/data/route-shapes.json. Ejecutar desde una IP chilena:
+// Descarga los shapes desde una fuente GTFS pública y los guarda
+// en src/data/route-shapes.json:
 //   node scripts/fetch-shapes.mjs
 import { writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -20,37 +20,34 @@ const unidad4 = [
 ];
 const codes = [...unidad6, ...unidad4];
 
-const pick = (d) => (d?.path?.length ? { destino: d.destino ?? "", path: d.path } : null);
+const SOURCE = "https://raw.githubusercontent.com/benjamintaito/red-santiago-routes/master/public/data/routes.json";
 
-async function fetchOne(code) {
-  const url = `https://www.red.cl/restservice_v2/rest/conocerecorrido?codsint=${encodeURIComponent(code)}`;
-  const res = await fetch(url, {
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "User-Agent": "Mozilla/5.0 rbu-shapes-fetcher",
-      Referer: "https://www.red.cl/planifica-tu-viaje/cuando-llega/",
-    },
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const j = await res.json();
-  return {
-    color: j?.negocio?.color ?? "#F42534",
-    ida: pick(j?.ida),
-    regreso: pick(j?.regreso),
-  };
-}
+const res = await fetch(SOURCE);
+if (!res.ok) throw new Error(`No se pudo descargar la fuente GTFS (HTTP ${res.status})`);
+const data = await res.json();
+const byCode = new Map(
+  (data.routes ?? [])
+    .filter((route) => route.shortName && Array.isArray(route.coordinates) && route.coordinates.length > 0)
+    .map((route) => [String(route.shortName).toUpperCase(), route]),
+);
 
 const out = {};
 for (const code of codes) {
   const key = code.toUpperCase();
-  try {
-    process.stdout.write(`→ ${key} ... `);
-    out[key] = await fetchOne(code);
-    console.log("ok");
-  } catch (e) {
-    console.log(`FAIL (${e.message})`);
+  const route = byCode.get(key);
+  if (!route) {
+    console.log(`→ ${key} ... sin shape`);
+    continue;
   }
-  await new Promise((r) => setTimeout(r, 250));
+  out[key] = {
+    color: "#F42534",
+    ida: {
+      destino: route.longName ?? key,
+      path: route.coordinates.map(([lat, lng]) => [Number(lat.toFixed(6)), Number(lng.toFixed(6))]),
+    },
+    regreso: null,
+  };
+  console.log(`→ ${key} ... ok`);
 }
 
 await mkdir(dirname(OUT), { recursive: true });
