@@ -198,18 +198,24 @@ function ReclamoForm() {
         />
         <Button type="submit" className="w-full bg-accent text-accent-foreground hover:opacity-90" size="lg">ENVIAR</Button>
 
-        <div className="mt-8 rounded-xl bg-[color:var(--muted)] p-5 text-sm text-[color:var(--gray-dark)]">
-          <p className="font-semibold text-primary">Canales de segunda instancia</p>
+        <div className="mt-8 rounded-r-xl rounded-l-none border-l-4 border-[#0047BA] bg-[#A4A9AD]/20 p-5 text-sm text-[color:var(--gray-dark)]">
+          <p className="font-semibold text-primary">Canales de atención RBU:</p>
+          <ul className="mt-2 space-y-1">
+            <li><strong>Teléfono:</strong> 600 488 1800</li>
+            <li><strong>Correo:</strong> consultas.rbu@transdev.cl</li>
+          </ul>
+
+          <p className="mt-4 font-semibold text-primary">Para ingresar un reclamo en segunda instancia, puede realizarlo en los siguientes canales:</p>
           <ul className="mt-2 space-y-1">
             <li>
               <strong>OIRS Transportescucha:</strong>{" "}
-              <a href="https://www.transportescucha.cl" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.transportescucha.cl</a>{" "}
-              · (+562) 2236 2222
+              <a href="https://www.transportescucha.cl" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.transportescucha.cl</a>,
+              {" "}o al teléfono (+562) 22362222
             </li>
             <li>
-              <strong>DTPM Red:</strong>{" "}
-              <a href="https://www.red.cl" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.red.cl</a>{" "}
-              · 600 730 00 73 (celular) / 800 73 00 73 (fijo)
+              <strong>Directorio de Transporte Público Metropolitano:</strong>{" "}
+              <a href="https://www.red.cl" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.red.cl</a>,
+              {" "}o al Call center 600 730 00 73 (desde celulares) o al 800 73 00 73 (desde teléfono fijo)
             </li>
           </ul>
         </div>
