@@ -277,26 +277,33 @@ function ReclamosPage() {
       <PageHero
         eyebrow="Atención a usuarias y usuarios"
         title="Escuchamos tu experiencia"
-        description="Comparte tu reclamo, sugerencia o felicitación. Nos ayudas a movernos mejor contigo."
+        description="Comunícate con nosotros a través de nuestros canales de atención."
       />
 
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        <Tabs defaultValue="reclamo" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-muted">
-            <TabsTrigger value="reclamo" className="data-[state=active]:bg-white data-[state=active]:text-accent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-accent rounded-none">Reclamos</TabsTrigger>
-            <TabsTrigger value="sugerencia" className="data-[state=active]:bg-white data-[state=active]:text-accent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-accent rounded-none">Sugerencias</TabsTrigger>
-            <TabsTrigger value="felicitacion" className="data-[state=active]:bg-white data-[state=active]:text-accent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-accent rounded-none">Felicitaciones</TabsTrigger>
-          </TabsList>
-          <TabsContent value="reclamo" className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-            <ReclamoForm />
-          </TabsContent>
-          <TabsContent value="sugerencia" className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-            <SimpleForm kind="sugerencia" />
-          </TabsContent>
-          <TabsContent value="felicitacion" className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-            <SimpleForm kind="felicitacion" />
-          </TabsContent>
-        </Tabs>
+        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <div className="rounded-r-xl rounded-l-none border-l-4 border-[#0047BA] bg-[#A4A9AD]/20 p-5 text-sm text-[color:var(--gray-dark)]">
+            <p className="font-semibold text-primary">Canales de atención RBU:</p>
+            <ul className="mt-2 space-y-1">
+              <li>📞 <strong>Teléfono:</strong> 600 488 1800</li>
+              <li>✉️ <strong>Correo:</strong> consultas.rbu@transdev.cl</li>
+            </ul>
+
+            <p className="mt-4 font-semibold text-primary">Para ingresar un reclamo en segunda instancia, puede realizarlo en los siguientes canales:</p>
+            <ul className="mt-2 space-y-1">
+              <li>
+                <strong>OIRS Transportescucha:</strong>{" "}
+                <a href="https://www.transportescucha.cl" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.transportescucha.cl</a>,
+                {" "}o al teléfono (+562) 22362222
+              </li>
+              <li>
+                <strong>Directorio de Transporte Público Metropolitano:</strong>{" "}
+                <a href="https://www.red.cl" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.red.cl</a>,
+                {" "}o al Call center 600 730 00 73 (desde celulares) o al 800 73 00 73 (desde teléfono fijo)
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </>
   );
