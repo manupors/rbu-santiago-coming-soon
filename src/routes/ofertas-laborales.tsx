@@ -96,9 +96,23 @@ function OfertasLaboralesPage() {
   const licencia = form.watch("licencia");
 
   const onSubmit = (values: FormValues) => {
-    console.log("Postulación recibida", values);
-    toast.success("¡Recibimos tu postulación!", {
-      description: "Nos pondremos en contacto contigo pronto. Gracias por querer moverte con nosotros.",
+    const subject = `Postulación: ${values.nombres} ${values.apellidoPaterno} ${values.apellidoMaterno}`;
+    const bodyLines = [
+      `Nombres: ${values.nombres}`,
+      `Apellido Paterno: ${values.apellidoPaterno}`,
+      `Apellido Materno: ${values.apellidoMaterno}`,
+      `RUT: ${values.rut}`,
+      `Licencia: ${values.licencia}${values.licencia === "OTRO" && values.otraLicencia ? ` (${values.otraLicencia})` : ""}`,
+      `Teléfono: ${values.telefono}`,
+      `Email: ${values.email ?? ""}`,
+      `Comuna: ${values.comuna}`,
+      `Dirección: ${values.direccion}`,
+      `¿Cómo se enteró?: ${values.origen}`,
+    ];
+    const mailto = `mailto:rbu.seleccion@transdev.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    toast.success("¡Abriendo tu correo!", {
+      description: "Adjunta tu CV en el correo antes de enviarlo a rbu.seleccion@transdev.cl.",
     });
     form.reset();
   };

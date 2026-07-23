@@ -1,8 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Handshake,
-  ShieldCheck,
-  HeartHandshake,
   BadgeCheck,
   Link2,
   Sparkles,
@@ -10,6 +7,10 @@ import {
 } from "lucide-react";
 import heroBus from "@/assets/hero-bus.jpg";
 import sectionBus from "@/assets/section-bus.jpg";
+import valorCuidar from "@/assets/valor-cuidar.png";
+import valorCompartir from "@/assets/valor-compartir.png";
+import valorAtreverse from "@/assets/valor-atreverse.png";
+import valorContribuir from "@/assets/valor-contribuir.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,26 +33,20 @@ const stats = [
   { value: "+673", label: "Buses diésel" },
   { value: "+50", label: "Recorridos" },
   { value: "6", label: "Terminales en la RM" },
-  { value: "NCh3262", label: "Certificación de igualdad de género" },
-  { value: "ISO 9001", label: "Sistema de gestión certificado" },
 ];
 
-const atributos = [
-  {
-    icon: Handshake,
-    title: "Apoyo",
-    desc: "Nos impulsa a dar siempre lo mejor, generando espacios de colaboración y trabajo en equipo.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Seguridad",
-    desc: "Nos movemos y tomamos decisiones que cuiden la integridad y bienestar de las personas.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Cercanía",
-    desc: "Nos importan las personas y nos movemos proactivamente para construir un buen lugar para trabajar.",
-  },
+const certificaciones = [
+  { code: "ISO 9001", label: "Gestión de Calidad" },
+  { code: "ISO 39001", label: "Seguridad Vial" },
+  { code: "ISO 50001", label: "Gestión de la Energía" },
+  { code: "ISO 55001", label: "Gestión de Activos" },
+];
+
+const valores = [
+  { icon: valorCuidar, title: "Cuidar", desc: "Cuidamos a las personas, a nuestros equipos y al entorno en cada decisión." },
+  { icon: valorCompartir, title: "Compartir", desc: "Compartimos conocimiento, experiencias y logros para crecer juntos." },
+  { icon: valorAtreverse, title: "Atreverse", desc: "Nos atrevemos a innovar y a desafiar lo establecido para mejorar el servicio." },
+  { icon: valorContribuir, title: "Contribuir", desc: "Contribuimos a la movilidad y calidad de vida de las personas de Santiago." },
 ];
 
 const destinos = [
@@ -201,12 +196,12 @@ function HomePage() {
             />
           </div>
           <div className="flex flex-col justify-center bg-background px-6 py-20 sm:px-12 lg:px-16">
-            <p className="eyebrow text-accent">— Nuestros valores</p>
+            <p className="eyebrow text-accent">— Nuestro propósito</p>
             <h2 className="headline-xl mt-6 text-4xl text-primary sm:text-5xl md:text-6xl">
-              Nos movemos juntos hacia desafiantes direcciones.
+              Avanzamos sin parar para ser elegidos por clientes, pasajeros y empleados.
             </h2>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-[color:var(--gray-dark)]">
-              Tres atributos guían la forma en que trabajamos día a día para
+              Cuatro valores guían la forma en que trabajamos día a día para
               entregar un servicio confiable a las personas del nororiente de
               Santiago.
             </p>
@@ -214,27 +209,54 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ATRIBUTOS — franja blanca minimal */}
+      {/* VALORES — franja blanca minimal */}
       <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-0 border-t border-border md:grid-cols-3">
-            {atributos.map((a) => (
+          <p className="eyebrow text-accent">— Nuestros valores</p>
+          <div className="mt-10 grid gap-0 border-t border-border md:grid-cols-2 lg:grid-cols-4">
+            {valores.map((v) => (
               <div
-                key={a.title}
-                className="group relative border-b border-border p-8 transition-colors hover:bg-[color:var(--muted)] md:border-r md:last:border-r-0"
+                key={v.title}
+                className="group relative border-b border-border p-8 transition-colors hover:bg-[color:var(--muted)] lg:border-r lg:last:border-r-0"
               >
-                <a.icon className="h-9 w-9 text-accent" strokeWidth={1.5} />
+                <img
+                  src={v.icon}
+                  alt={v.title}
+                  className="h-14 w-14 object-contain"
+                />
                 <h3 className="mt-6 font-display text-3xl uppercase text-primary">
-                  {a.title}
+                  {v.title}
                 </h3>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-[color:var(--gray-dark)]">
-                  {a.desc}
+                  {v.desc}
                 </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* CERTIFICACIONES */}
+      <section className="bg-[color:var(--muted)]/50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="eyebrow text-accent">— Certificaciones</p>
+          <h2 className="headline-xl mt-6 text-3xl text-primary sm:text-4xl md:text-5xl">
+            Un sistema de gestión integrado y certificado.
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {certificaciones.map((c) => (
+              <div
+                key={c.code}
+                className="rounded-xl border border-border bg-card p-6 shadow-sm"
+              >
+                <p className="font-display text-2xl text-primary">{c.code}</p>
+                <p className="mt-2 text-sm text-[color:var(--gray-dark)]">{c.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* DESTINOS — banda roja de acento */}
       <section className="bg-accent py-24 text-accent-foreground sm:py-28">

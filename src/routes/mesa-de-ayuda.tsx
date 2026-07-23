@@ -1,34 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { ExternalLink } from "lucide-react";
+import { AlertTriangle, ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/mesa-de-ayuda")({
   head: () => ({
     meta: [
-      { title: "Mesa de Ayuda — RBU Santiago" },
-      { name: "description", content: "Canal de denuncias SpeakUp. Tu voz importa para construir un entorno más seguro y respetuoso." },
-      { property: "og:title", content: "Mesa de Ayuda — RBU Santiago" },
-      { property: "og:description", content: "Canal de denuncias SpeakUp. Tu voz importa para construir un entorno más seguro y respetuoso." },
+      { title: "Speak Up — RBU Santiago" },
+      { name: "description", content: "Canal de integridad SpeakUp. Tu voz importa para construir un entorno más seguro y respetuoso." },
+      { property: "og:title", content: "Speak Up — RBU Santiago" },
+      { property: "og:description", content: "Canal de integridad SpeakUp. Tu voz importa para construir un entorno más seguro y respetuoso." },
       { property: "og:url", content: "https://rbusantiago.cl/mesa-de-ayuda" },
     ],
     links: [{ rel: "canonical", href: "https://rbusantiago.cl/mesa-de-ayuda" }],
   }),
-  component: MesaAyudaPage,
+  component: SpeakUpPage,
 });
 
-function MesaAyudaPage() {
+function SpeakUpPage() {
   return (
     <>
       <PageHero
         eyebrow="Canal de integridad"
-        title="Tu voz importa"
-        description="¿Has sido testigo de situaciones que van en contra de nuestros valores y principios? En RBU Santiago, creemos que la voz de cada persona importa y puede contribuir a un entorno más seguro y respetuoso."
+        title="Speak Up"
+        description="Tu voz importa."
       />
 
-      <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 lg:px-8">
-        <p className="text-base text-[color:var(--gray-dark)]">
-          Deja constancia de manera segura y confidencial a través de nuestro canal
-          externo <strong className="text-primary">SpeakUp</strong>, gestionado por Transdev.
+      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
+        <p className="text-base leading-relaxed text-[color:var(--gray-dark)]">
+          ¿Has sido testigo de situaciones que van en contra de nuestros
+          valores y principios? En RBU Santiago, creemos que la voz de cada
+          persona importa y puede contribuir a un entorno más seguro y
+          respetuoso.
         </p>
 
         <a
@@ -44,6 +47,28 @@ function MesaAyudaPage() {
         <p className="mt-6 text-xs text-muted-foreground">
           Se abrirá el portal externo SpeakUp en una nueva pestaña.
         </p>
+
+        <div className="mt-12 rounded-xl border-2 border-[#F42534] bg-[#F42534]/5 p-6 text-left">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-[#F42534]" />
+            <div className="text-sm leading-relaxed text-[color:var(--gray-dark)]">
+              <p className="font-bold text-[#F42534]">ATENCIÓN</p>
+              <p className="mt-2">
+                Si su reporte está relacionado con accidentes, conducción de
+                buses o consultas y reclamos sobre nuestro servicio de
+                transporte (recorridos, paradas u otros), diríjase a{" "}
+                <Link to="/reclamos" className="font-semibold text-primary underline">
+                  Reclamos
+                </Link>
+                .
+              </p>
+              <p className="mt-2">
+                <strong>Importante:</strong> Estos casos no son gestionados por
+                SpeakUp y no serán procesados por este canal.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

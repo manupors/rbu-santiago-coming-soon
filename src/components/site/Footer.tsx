@@ -22,7 +22,8 @@ export function Footer() {
             <li><Link to="/" className="hover:text-accent">Inicio</Link></li>
             <li><Link to="/quienes-somos" className="hover:text-accent">¿Quiénes somos?</Link></li>
             <li><Link to="/recorridos" className="hover:text-accent">Recorridos</Link></li>
-            <li><Link to="/mesa-de-ayuda" className="hover:text-accent">Mesa de Ayuda</Link></li>
+            <li><Link to="/politica-sgi" className="hover:text-accent">Política SGI</Link></li>
+            <li><Link to="/mesa-de-ayuda" className="hover:text-accent">Speak Up</Link></li>
             <li><Link to="/reclamos" className="hover:text-accent">Reclamos, sugerencias y felicitaciones</Link></li>
             <li><Link to="/ofertas-laborales" className="hover:text-accent">Ofertas Laborales</Link></li>
           </ul>
