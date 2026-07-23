@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { ConnectivityLine } from "@/components/brand/ConnectivityLine";
 
@@ -34,7 +34,7 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span>Santiago de Chile — Sector nororiente</span>
+              <span>Av. El Salto 4651 - Huechuraba</span>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
@@ -50,6 +50,15 @@ export function Footer() {
               className="grid h-10 w-10 place-items-center rounded-full border border-white/40 hover:bg-white hover:text-primary transition-colors"
             >
               <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/rbusantiago/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn — RBU Santiago: Publicaciones"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/40 hover:bg-white hover:text-primary transition-colors"
+            >
+              <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="https://www.facebook.com/"
