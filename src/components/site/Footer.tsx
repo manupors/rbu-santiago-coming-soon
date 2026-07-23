@@ -36,10 +36,6 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span>Av. El Salto 4651 - Huechuraba</span>
             </li>
-            <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span>dataprivacy@transdev.com</span>
-            </li>
           </ul>
           <div className="mt-5 flex gap-3">
             <a
