@@ -1,8 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Handshake,
-  ShieldCheck,
-  HeartHandshake,
   BadgeCheck,
   Link2,
   Sparkles,
@@ -10,6 +7,10 @@ import {
 } from "lucide-react";
 import heroBus from "@/assets/hero-bus.jpg";
 import sectionBus from "@/assets/section-bus.jpg";
+import valorCuidar from "@/assets/valor-cuidar.png";
+import valorCompartir from "@/assets/valor-compartir.png";
+import valorAtreverse from "@/assets/valor-atreverse.png";
+import valorContribuir from "@/assets/valor-contribuir.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,26 +33,20 @@ const stats = [
   { value: "+673", label: "Buses diésel" },
   { value: "+50", label: "Recorridos" },
   { value: "6", label: "Terminales en la RM" },
-  { value: "NCh3262", label: "Certificación de igualdad de género" },
-  { value: "ISO 9001", label: "Sistema de gestión certificado" },
 ];
 
-const atributos = [
-  {
-    icon: Handshake,
-    title: "Apoyo",
-    desc: "Nos impulsa a dar siempre lo mejor, generando espacios de colaboración y trabajo en equipo.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Seguridad",
-    desc: "Nos movemos y tomamos decisiones que cuiden la integridad y bienestar de las personas.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Cercanía",
-    desc: "Nos importan las personas y nos movemos proactivamente para construir un buen lugar para trabajar.",
-  },
+const certificaciones = [
+  { code: "ISO 9001", label: "Gestión de Calidad" },
+  { code: "ISO 39001", label: "Seguridad Vial" },
+  { code: "ISO 50001", label: "Gestión de la Energía" },
+  { code: "ISO 55001", label: "Gestión de Activos" },
+];
+
+const valores = [
+  { icon: valorCuidar, title: "Cuidar", desc: "Cuidamos a las personas, a nuestros equipos y al entorno en cada decisión." },
+  { icon: valorCompartir, title: "Compartir", desc: "Compartimos conocimiento, experiencias y logros para crecer juntos." },
+  { icon: valorAtreverse, title: "Atreverse", desc: "Nos atrevemos a innovar y a desafiar lo establecido para mejorar el servicio." },
+  { icon: valorContribuir, title: "Contribuir", desc: "Contribuimos a la movilidad y calidad de vida de las personas de Santiago." },
 ];
 
 const destinos = [

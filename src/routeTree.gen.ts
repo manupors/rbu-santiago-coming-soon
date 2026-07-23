@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RecorridosRouteImport } from './routes/recorridos'
 import { Route as ReclamosRouteImport } from './routes/reclamos'
 import { Route as QuienesSomosRouteImport } from './routes/quienes-somos'
+import { Route as PoliticaSgiRouteImport } from './routes/politica-sgi'
 import { Route as OfertasLaboralesRouteImport } from './routes/ofertas-laborales'
 import { Route as MesaDeAyudaRouteImport } from './routes/mesa-de-ayuda'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const ReclamosRoute = ReclamosRouteImport.update({
 const QuienesSomosRoute = QuienesSomosRouteImport.update({
   id: '/quienes-somos',
   path: '/quienes-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaSgiRoute = PoliticaSgiRouteImport.update({
+  id: '/politica-sgi',
+  path: '/politica-sgi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OfertasLaboralesRoute = OfertasLaboralesRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/mesa-de-ayuda': typeof MesaDeAyudaRoute
   '/ofertas-laborales': typeof OfertasLaboralesRoute
+  '/politica-sgi': typeof PoliticaSgiRoute
   '/quienes-somos': typeof QuienesSomosRoute
   '/reclamos': typeof ReclamosRoute
   '/recorridos': typeof RecorridosRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/mesa-de-ayuda': typeof MesaDeAyudaRoute
   '/ofertas-laborales': typeof OfertasLaboralesRoute
+  '/politica-sgi': typeof PoliticaSgiRoute
   '/quienes-somos': typeof QuienesSomosRoute
   '/reclamos': typeof ReclamosRoute
   '/recorridos': typeof RecorridosRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/mesa-de-ayuda': typeof MesaDeAyudaRoute
   '/ofertas-laborales': typeof OfertasLaboralesRoute
+  '/politica-sgi': typeof PoliticaSgiRoute
   '/quienes-somos': typeof QuienesSomosRoute
   '/reclamos': typeof ReclamosRoute
   '/recorridos': typeof RecorridosRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/mesa-de-ayuda'
     | '/ofertas-laborales'
+    | '/politica-sgi'
     | '/quienes-somos'
     | '/reclamos'
     | '/recorridos'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/mesa-de-ayuda'
     | '/ofertas-laborales'
+    | '/politica-sgi'
     | '/quienes-somos'
     | '/reclamos'
     | '/recorridos'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/mesa-de-ayuda'
     | '/ofertas-laborales'
+    | '/politica-sgi'
     | '/quienes-somos'
     | '/reclamos'
     | '/recorridos'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MesaDeAyudaRoute: typeof MesaDeAyudaRoute
   OfertasLaboralesRoute: typeof OfertasLaboralesRoute
+  PoliticaSgiRoute: typeof PoliticaSgiRoute
   QuienesSomosRoute: typeof QuienesSomosRoute
   ReclamosRoute: typeof ReclamosRoute
   RecorridosRoute: typeof RecorridosRoute
@@ -129,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/quienes-somos'
       fullPath: '/quienes-somos'
       preLoaderRoute: typeof QuienesSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-sgi': {
+      id: '/politica-sgi'
+      path: '/politica-sgi'
+      fullPath: '/politica-sgi'
+      preLoaderRoute: typeof PoliticaSgiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ofertas-laborales': {
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MesaDeAyudaRoute: MesaDeAyudaRoute,
   OfertasLaboralesRoute: OfertasLaboralesRoute,
+  PoliticaSgiRoute: PoliticaSgiRoute,
   QuienesSomosRoute: QuienesSomosRoute,
   ReclamosRoute: ReclamosRoute,
   RecorridosRoute: RecorridosRoute,
