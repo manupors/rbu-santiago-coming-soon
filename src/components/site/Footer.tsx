@@ -52,6 +52,15 @@ export function Footer() {
               <Instagram className="h-5 w-5" />
             </a>
             <a
+              href="https://www.linkedin.com/company/rbusantiago/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn — RBU Santiago: Publicaciones"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/40 hover:bg-white hover:text-primary transition-colors"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
               href="https://www.facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
