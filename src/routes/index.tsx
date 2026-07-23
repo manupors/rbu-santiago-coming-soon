@@ -200,14 +200,28 @@ function HomePage() {
       <section className="bg-background">
         <div className="grid lg:grid-cols-2">
           <div className="relative min-h-[380px] overflow-hidden lg:min-h-[560px]">
-            <img
-              src={sectionBus}
-              alt="Pasajeros abordando un bus RBU al atardecer en Santiago"
-              width={1600}
-              height={1008}
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+            {propositoSlides.map((s, i) => (
+              <img
+                key={s.src}
+                src={s.src}
+                alt={s.alt}
+                width={1600}
+                height={1008}
+                loading={i === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${i === slide ? "opacity-100" : "opacity-0"}`}
+              />
+            ))}
+            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+              {propositoSlides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Ir a imagen ${i + 1}`}
+                  onClick={() => setSlide(i)}
+                  className={`h-2 w-6 transition-colors ${i === slide ? "bg-accent" : "bg-white/60 hover:bg-white"}`}
+                />
+              ))}
+            </div>
           </div>
           <div className="flex flex-col justify-center bg-background px-6 py-20 sm:px-12 lg:px-16">
             <p className="eyebrow text-accent">— Nuestro propósito</p>
