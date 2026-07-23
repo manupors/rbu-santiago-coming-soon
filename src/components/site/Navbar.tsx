@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button";
 const links = [
   { to: "/", label: "Inicio" },
   { to: "/quienes-somos", label: "¿Quiénes somos?" },
+  { to: "/politica-sgi", label: "Política SGI" },
   { to: "/recorridos", label: "Recorridos" },
-  { to: "/mesa-de-ayuda", label: "Mesa de Ayuda" },
+  { to: "/mesa-de-ayuda", label: "Speak Up" },
   { to: "/reclamos", label: "Reclamos" },
   { to: "/ofertas-laborales", label: "Ofertas Laborales" },
 ] as const;
