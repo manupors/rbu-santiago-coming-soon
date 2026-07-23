@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin } from "lucide-react";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { ConnectivityLine } from "@/components/brand/ConnectivityLine";
 
