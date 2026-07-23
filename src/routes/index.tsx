@@ -77,6 +77,11 @@ const destinos = [
 ];
 
 function HomePage() {
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % propositoSlides.length), 5000);
+    return () => clearInterval(id);
+  }, []);
   return (
     <>
       {/* HERO cinematográfico full-bleed */}
