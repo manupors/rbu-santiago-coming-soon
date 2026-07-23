@@ -8,7 +8,6 @@ import {
 import { useEffect, useState } from "react";
 import heroBus from "@/assets/hero-bus.jpg";
 import proposito1 from "@/assets/proposito-1.jpg.asset.json";
-import proposito2 from "@/assets/proposito-2.jpg.asset.json";
 import proposito3 from "@/assets/proposito-3.jpg.asset.json";
 import valorCuidar from "@/assets/valor-cuidar.png";
 import valorCompartir from "@/assets/valor-compartir.png";
@@ -17,7 +16,6 @@ import valorContribuir from "@/assets/valor-contribuir.png";
 
 const propositoSlides = [
   { src: proposito1.url, alt: "Flota de buses RBU en terminal de Santiago" },
-  { src: proposito2.url, alt: "Buses Marcopolo Torino de RBU alineados en terminal" },
   { src: proposito3.url, alt: "Vista aérea del terminal de buses RBU" },
 ];
 
